@@ -5,9 +5,14 @@ class WeatherApiService {
     private readonly apiBaseUrl = "https://www.metaweather.com/api";
     
     async getWeatherByWoeid( woeid: number ): Promise<WeatherForecast> {
-        const weatherForecastResponse = await axios.get<WeatherForecast>(`${this.apiBaseUrl}/location/${woeid}/`);
-        console.log('weatherForecastResult', weatherForecastResponse.data);
-        return weatherForecastResponse.data;
+        try {
+            const weatherForecastResponse = await axios.get<WeatherForecast>(`${this.apiBaseUrl}/location/${woeid}/`);
+            console.log('weatherForecastResult', weatherForecastResponse.data);
+            return weatherForecastResponse.data;
+        } catch (e) {
+            throw new Error((e as Error).message);
+        }
+        
     }
 }
 
