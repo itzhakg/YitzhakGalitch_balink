@@ -92,7 +92,7 @@
 		
 		@include respond(tab-port) {
 			
-			margin-top: 0;
+			margin-block: 0;
 		}
 		
 		.weather-header {
@@ -253,5 +253,14 @@
 
 .footer {
 	border-top: 1px solid $color-secondary;
-	height: 5rem;
+	min-height: 5rem;
+	
+	.copyright {
+		margin-block: 3rem;
+		text-align: center;
+		color: $color-secondary;
+		font-weight: 600;
+		font-size: 1.6rem;
+		
+	}
 }

@@ -12,7 +12,9 @@ const App = () => {
             <WeatherForecast/>
         </main>
         <footer className="footer">
-          footer
+            <div className="copyright">
+                &copy; Yitzhak Galitch
+            </div>
         </footer>
       </React.Fragment>
     
