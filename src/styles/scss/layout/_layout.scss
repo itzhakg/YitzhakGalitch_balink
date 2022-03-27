@@ -1,5 +1,5 @@
 .header {
-	height: 5rem;
+	min-height: 5rem;
 	border-bottom: 1px solid $color-secondary;
 	
 	.toolbar {
@@ -8,16 +8,24 @@
 		margin-inline: 10rem;
 		height: inherit;
 		
-		@include respond(phone) {
+		@include respond(tab-port) {
 			//width: 100%;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			margin-block: 2rem;
 		}
 		
 		&-start {
 			display: flex;
 			height: inherit;
+			
+			@include respond(tab-port) {
+				//width: 100%;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
 			
 			.app-title {
 				display: flex;
@@ -82,6 +90,11 @@
 		margin-inline: auto;
 		box-shadow: 0 2rem 6rem rgba(0, 0, 0, .3);
 		
+		@include respond(tab-port) {
+			
+			margin-top: 0;
+		}
+		
 		.weather-header {
 			display: flex;
 			background-color: $color-secondary;
@@ -89,18 +102,16 @@
 			justify-content: space-between;
 			padding-inline: 5rem;
 			
+			@include respond(tab-port) {
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 8rem;
+			}
+			
 			.weather-city {
 				display: flex;
 				align-items: center;
-				
-				@include respond(tab-port) {
-					//width: 100%;
-					flex-direction: column;
-					justify-content: center;
-					align-items: center;
-				}
-				
-				
 				
 				
 				&__name {
@@ -154,7 +165,6 @@
 			margin-block: auto;
 			
 			@include respond(tab-port) {
-				//width: 100%;
 				flex-direction: column;
 			}
 			
@@ -173,7 +183,6 @@
 				
 				@include respond(tab-port) {
 					width: 100%;
-					//flex-direction: row;
 					min-height: 15rem;
 				}
 				
@@ -217,7 +226,8 @@
 					margin-top: 1rem;
 					
 					@include respond(tab-port) {
-						padding-inline: 20rem;
+						padding-inline: 15rem;
+						margin-bottom: 5rem;
 					}
 					
 					@include respond(phone) {
