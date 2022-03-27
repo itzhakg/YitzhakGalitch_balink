@@ -1,11 +1,12 @@
 import React from 'react';
 import {WeatherForecast} from "./pages/WeatherForecast";
+import {AppToolbar} from "./components/AppToolbar";
 
 const App = () => {
   return (
       <React.Fragment>
         <div className="header">
-          Weather App
+          <AppToolbar/>
         </div>
         <main className="main">
             <WeatherForecast/>

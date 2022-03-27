@@ -2,6 +2,63 @@
 	height: 5rem;
 	border-bottom: 1px solid $color-secondary;
 	
+	.toolbar {
+		display: flex;
+		justify-content: space-between;
+		margin-inline: 10rem;
+		height: inherit;
+		
+		&-start {
+			display: flex;
+			height: inherit;
+			
+			.app-title {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				
+				font-size: 2.2rem;
+				color: $color-black-light;
+				font-weight: 800;
+			}
+			
+			.city-selection {
+				height: inherit;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $color-black-light;
+				margin-inline: 5rem;
+				
+				.selector-title {
+					font-size: 1.6rem;
+					font-weight: 600;
+				}
+				
+				.selector-input {
+					min-height: 3rem;
+					background-color: transparent;
+					border: none;
+					font-weight: 600;
+					font-size: 1.8rem;
+					margin-inline: 2rem;
+					height: inherit;
+					padding-inline: 1rem;
+					outline: transparent;
+					
+					option {
+						padding-block: 1rem;
+						padding-inline: 1rem;
+						background-color: $color-background;
+						font-weight: 600;
+						font-size: 1.8rem;
+						color: $color-black-light
+					}
+				}
+			}
+		}
+	}
+	
 }
 
 .main {
@@ -60,7 +117,7 @@
 					.time__name {
 						display: flex;
 						align-items: center;
-					
+						
 					}
 					
 					.time__value {

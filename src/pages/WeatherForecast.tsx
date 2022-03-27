@@ -4,16 +4,18 @@ import {fetchCityForecast} from "../store/weatherStore/weatherSlice";
 import {selectWeatherState} from "../store/weatherStore/weatherSelectors";
 import {DailyForecast} from "../components/DailyForecast";
 import moment from "moment";
+import {selectSelectedCityWoeid} from "../store/citiesSelectorStore/citiesSelectorSelectors";
 
 export const WeatherForecast = () => {
     const dispatch = useDispatch();
     
     const weatherForecast = useSelector(selectWeatherState);
+    const selectedCityWoeid = useSelector(selectSelectedCityWoeid);
     
     
     useEffect(()=>{
-        dispatch(fetchCityForecast(2459115));
-    }, [])
+        dispatch(fetchCityForecast(selectedCityWoeid));
+    }, [selectedCityWoeid])
     
     if(!weatherForecast) return null;
     return (
@@ -36,11 +38,11 @@ export const WeatherForecast = () => {
                         <div className="time__value">{moment(weatherForecast.time).format("HH:mm a")}</div>
                     </div>
                     <div className="forecast-time">
-                        <div className="time__name">Sunrise:</div>
+                        <div className="time__name">Sunrise: </div>
                         <div className="time__value">{moment(weatherForecast.sun_rise).format("HH:mm a")}</div>
                     </div>
                     <div className="forecast-time">
-                        <div className="time__name">Sunset:</div>
+                        <div className="time__name">Sunset: </div>
                         <div className="time__value">{moment(weatherForecast.sun_set).format("HH:mm a")}</div>
                     </div>
                 </div>
