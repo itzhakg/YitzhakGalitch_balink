@@ -33,7 +33,7 @@ export const WeatherForecast = () => {
                     weatherForecast
                         .consolidated_weather
                         .slice(0,5)
-                        .map(dailyForecast => <DailyForecast {...dailyForecast}/>)
+                        .map((dailyForecast, index) => <DailyForecast {...dailyForecast} key={index}/>)
                 }
             </div>
         

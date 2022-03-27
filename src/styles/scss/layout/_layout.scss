@@ -16,7 +16,7 @@
 		background-color: #f0f0f0;
 		margin-block: 6rem;
 		margin-inline: auto;
-		box-shadow: 0 2rem 6rem rgba(0,0,0,.3);
+		box-shadow: 0 2rem 6rem rgba(0, 0, 0, .3);
 		
 		.weather-city {
 			display: flex;
@@ -25,13 +25,12 @@
 			align-items: center;
 			
 			
-			
 			&__name {
 				color: #E6E2DD;
 				font-size: 2.2rem;
 				font-weight: 800;
 				margin-left: 10rem;
-			
+				
 			}
 			
 			&__region {
@@ -39,21 +38,72 @@
 				font-size: 1.6rem;
 				font-weight: 600;
 			}
-		
+			
 		}
 		
-		.weather-forecast{
+		.weather-forecast {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-evenly;
-			padding-top: 3rem;
 			align-content: stretch;
+			margin-block: auto;
 			
 			.forecast {
 				height: 100%;
 				width: calc(120rem / 5 - 4rem);
-				box-shadow: 0 0 3rem rgba(0,0,0,.1);
-				min-height: 50rem;
+				box-shadow: 0 0 3rem rgba(0, 0, 0, .1);
+				min-height: 42rem;
+				font-size: 1.6rem;
+				
+				.day-header {
+					display: flex;
+					flex-direction: column;
+					
+					&__title {
+						font-size: 1.8rem;
+						font-weight: 700;
+						color: $color-secondary;
+						text-align: center;
+						padding-block: .8rem;
+						letter-spacing: .1rem;
+					}
+					
+					&__icon {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						min-height: 15rem;
+						
+						img {
+							max-width: 10rem;
+						}
+						
+						.state-title {
+							margin-top: 1rem;
+							font-weight: 600;
+							color: lighten($color-black-light, 20);
+						}
+						
+					}
+				}
+				
+				.day-data {
+					display: flex;
+					flex-direction: column;
+					padding-inline: 1.5rem;
+					margin-top: 1rem;
+					
+					.data-row {
+						display: flex;
+						justify-content: space-between;
+						
+						&__name {
+							font-weight: 600;
+							color: $color-black-light;
+						}
+					}
+				}
 			}
 			
 		}
