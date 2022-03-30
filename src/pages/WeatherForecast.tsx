@@ -1,62 +1,23 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {fetchCityForecast} from "../store/weatherStore/weatherSlice";
+import React from 'react';
+import {useSelector} from "react-redux";
 import {selectWeatherState} from "../store/weatherStore/weatherSelectors";
 import {DailyForecast} from "../components/DailyForecast";
-import moment from "moment";
-import {selectSelectedCityWoeid} from "../store/citiesSelectorStore/citiesSelectorSelectors";
 
 export const WeatherForecast = () => {
-    const dispatch = useDispatch();
     
     const weatherForecast = useSelector(selectWeatherState);
-    const selectedCityWoeid = useSelector(selectSelectedCityWoeid);
     
-    
-    useEffect(()=>{
-        dispatch(fetchCityForecast(selectedCityWoeid));
-    }, [selectedCityWoeid])
-    
-    if(!weatherForecast) return null;
+    if (!weatherForecast) return null;
     return (
-        <div className="weather">
-            <div className="weather-header">
-                <div className="weather-city">
-                    <span className="weather-city__title">
-                        <span className="weather-city__name">
-                        { weatherForecast.title }
-                    </span>
-                    <span className="weather-city__region">
-                        { weatherForecast.parent.title }
-                    </span>
-                    </span>
+        <div className="weather-forecast">
+            {
+                weatherForecast
+                    .consolidated_weather
+                    .slice(0, 5)
+                    .map((dailyForecast, index) => <DailyForecast {...dailyForecast} key={index}/>)
+            }
+        </div>
     
-                </div>
-                <div className="forecast-times">
-                    <div className="forecast-time">
-                        <div className="time__name">Time:</div>
-                        <div className="time__value">{moment(weatherForecast.time).format("HH:mm a")}</div>
-                    </div>
-                    <div className="forecast-time">
-                        <div className="time__name">Sunrise: </div>
-                        <div className="time__value">{moment(weatherForecast.sun_rise).format("HH:mm a")}</div>
-                    </div>
-                    <div className="forecast-time">
-                        <div className="time__name">Sunset: </div>
-                        <div className="time__value">{moment(weatherForecast.sun_set).format("HH:mm a")}</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div className="weather-forecast">
-                {
-                    weatherForecast
-                        .consolidated_weather
-                        .slice(0,5)
-                        .map((dailyForecast, index) => <DailyForecast {...dailyForecast} key={index}/>)
-                }
-            </div>
-        
-        </div>)
+    )
 }
 

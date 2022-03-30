@@ -7,3 +7,8 @@ export const selectWeatherState = createSelector(
     selectWeatherForecastState,
     weatherState => weatherState.weather
 );
+
+export const selectWeatherSources = createSelector(
+    selectWeatherState,
+    weather => weather ? weather.sources : []
+);

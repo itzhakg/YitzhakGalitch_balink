@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, NavLink} from "react-router-dom";
 import {AppToolbar} from "./components/AppToolbar";
-import {MainRoutes} from "./routing/mainRoute";
+import {MainRoutes} from "./routing/MainRoutes";
 
 const App = () => {
     return (

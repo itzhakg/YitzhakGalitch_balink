@@ -199,6 +199,42 @@
 			}
 		}
 		
+		.forecast-sources {
+			display: flex;
+			justify-content: space-between;
+			
+			.sources-container {
+				display: flex;
+				flex-direction: column;
+				flex-basis: 50%;
+				background-color: rgba(241, 175, 175, 0.43);
+				height: inherit;
+				align-items: center;
+				padding-inline: 5rem;
+				justify-content: center;
+				
+				@include respond(phone) {
+					padding-inline: 2rem;
+				}
+				
+				
+				.source-data {
+					display: flex;
+					
+					font-size: 1.6rem;
+					
+					.source-title {
+					
+					}
+					
+					.source-link {
+					
+					}
+				}
+				
+			}
+		}
+		
 		
 		.weather-forecast {
 			display: flex;
@@ -206,10 +242,38 @@
 			justify-content: space-evenly;
 			margin-block: 5rem;
 			
+			&.single {
+				justify-content: center;
+				width: 50%;
+				
+				.forecast {
+					
+					.day-data {
+						@include respond(tab-port) {
+							padding-inline: 2rem;
+						}
+						
+						.data-row {
+							@include respond(phone) {
+								font-size: 1.4rem;
+							}
+							
+						}
+					}
+					
+					
+				}
+				
+				
+				
+			}
+			
 			@include respond(tab-port) {
 				flex-direction: column;
 				margin-top: 0;
 			}
+			
+			
 			
 			.forecast {
 				height: 100%;
